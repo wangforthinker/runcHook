@@ -3,10 +3,9 @@ package main
 import (
 	"github.com/urfave/cli"
 	"github.com/wangforthinker/runcHook/hook"
-	"fmt"
 	"os"
 	"io/ioutil"
-	"k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/util/json"
+	"encoding/json"
 )
 
 var(
@@ -19,21 +18,25 @@ var(
 func record(c *cli.Context)  {
 	fpath := c.String("file")
 
+	log.WithField("file",fpath).Info("print file path")
+
 	state,err := hook.GetHookState()
 	if err != nil {
-		fmt.Fprint(os.Stderr, err.Error())
+		log.Error(err.Error())
 		return
 	}
 
+	log.WithField("bundle", state.Bundle).WithField("id",state.ID).Info("get state info")
+
 	data,err := json.Marshal(state)
 	if err != nil {
-		fmt.Fprint(os.Stderr, err.Error())
+		log.Error(os.Stderr, err.Error())
 		return
 	}
 
 	err = ioutil.WriteFile(fpath, data, 0x644)
 	if err != nil {
-		fmt.Fprint(os.Stderr, err.Error())
+		log.Error(os.Stderr, err.Error())
 		return
 	}
 }

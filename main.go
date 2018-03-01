@@ -2,8 +2,12 @@ package main
 
 import (
 	"github.com/urfave/cli"
-	"github.com/Sirupsen/logrus"
 	"os"
+	"github.com/wangforthinker/runcHook/utils"
+)
+
+var(
+	log = utils.GetLogger()
 )
 
 func main() {
@@ -20,6 +24,6 @@ func main() {
 	}
 
 	if err := app.Run(os.Args); err != nil {
-		logrus.Fatal(err.Error())
+		log.Fatal(err.Error())
 	}
 }

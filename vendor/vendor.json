@@ -9,6 +9,12 @@
 			"revisionTime": "2018-02-07T18:27:17Z"
 		},
 		{
+			"checksumSHA1": "N5RwWgt0CCgyVin0kYbipyoy6O8=",
+			"path": "github.com/pborman/uuid",
+			"revision": "5007efa264d92316c43112bc573e754bc889b7b1",
+			"revisionTime": "2016-12-06T18:47:45Z"
+		},
+		{
 			"checksumSHA1": "9/2qvuFPQxW7ZXzQSOYwqZb5cNg=",
 			"path": "github.com/urfave/cli",
 			"revision": "8e01ec4cd3e2d84ab2fe90d8210528ffbb06d8ff",
@@ -25,12 +31,6 @@
 			"path": "golang.org/x/sys/unix",
 			"revision": "a646d33e2ee3172a661fc09bca23bb4889a41bc8",
 			"revisionTime": "2016-07-15T05:43:45Z"
-		},
-		{
-			"checksumSHA1": "F1IoF1v//vdQax4tt+I8iaH/w70=",
-			"path": "k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/util/json",
-			"revision": "d7e56d53306d23818abadafe44005061a462d1c6",
-			"revisionTime": "2017-10-17T02:36:15Z"
 		}
 	],
 	"rootPath": "github.com/wangforthinker/runcHook"
