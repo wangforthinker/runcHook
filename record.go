@@ -2,7 +2,6 @@ package main
 
 import (
 	"github.com/urfave/cli"
-	"github.com/wangforthinker/runcHook/hook"
 	"os"
 	"io/ioutil"
 	"encoding/json"
@@ -22,12 +21,6 @@ func record(c *cli.Context) error {
 	fpath := c.String("file")
 
 	log.WithField("file",fpath).Info("print file path")
-
-	state,err := hook.GetHookState()
-	if err != nil {
-		log.Error(err.Error())
-		return err
-	}
 
 	log.WithField("bundle", state.Bundle).WithField("id",state.ID).Info("get state info")
 

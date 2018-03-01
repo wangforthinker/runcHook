@@ -5,11 +5,23 @@ import (
 	"os"
 	"github.com/wangforthinker/runcHook/utils"
 	"strings"
+	"github.com/wangforthinker/runcHook/hook"
 )
 
 var(
 	log = utils.GetLogger()
+	state = &hook.HookState{}
 )
+
+func readStdin() error {
+	s,err := hook.GetHookState()
+	if err != nil{
+		return err
+	}
+
+	state = s
+	return nil
+}
 
 func main() {
 	app := cli.NewApp()
@@ -30,6 +42,12 @@ func main() {
 	}
 
 	log.Infof("start runc hook, cmd is %s", strings.Join(os.Args,","))
+	err := readStdin()
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+
+	log.WithField("id", state.ID).WithField("bundle",state.Bundle).Info("state info")
 
 	if err := app.Run(os.Args); err != nil {
 		log.Fatal(err.Error())
