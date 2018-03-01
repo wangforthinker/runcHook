@@ -22,9 +22,14 @@ func main() {
 			Flags: []cli.Flag{fWriteFilePath},
 			Action: record,
 		},
+		cli.Command{
+			Name: "test",
+			Flags: []cli.Flag{fWriteFilePath},
+			Action: test,
+		},
 	}
 
-	log.Info("start runc hook, cmd is %s", strings.Join(os.Args,","))
+	log.Infof("start runc hook, cmd is %s", strings.Join(os.Args,","))
 
 	if err := app.Run(os.Args); err != nil {
 		log.Fatal(err.Error())

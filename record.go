@@ -17,6 +17,8 @@ var(
 )
 
 func record(c *cli.Context) error {
+	log.Info("in runcHook record")
+
 	fpath := c.String("file")
 
 	log.WithField("file",fpath).Info("print file path")
