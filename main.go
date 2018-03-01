@@ -6,6 +6,7 @@ import (
 	"github.com/wangforthinker/runcHook/utils"
 	"strings"
 	"github.com/wangforthinker/runcHook/hook"
+	"io/ioutil"
 )
 
 var(
@@ -14,12 +15,22 @@ var(
 )
 
 func readStdin() error {
-	s,err := hook.GetHookState()
+	//s,err := hook.GetHookState()
+	//if err != nil{
+	//	return err
+	//}
+	//
+	//state = s
+	//return nil
+
+	data,err := ioutil.ReadAll(os.Stdin)
 	if err != nil{
 		return err
 	}
 
-	state = s
+	log.Info("read stdin ok")
+
+	log.Info("data is %s",string(data))
 	return nil
 }
 
