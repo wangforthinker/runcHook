@@ -15,12 +15,6 @@
 			"revisionTime": "2016-12-06T18:47:45Z"
 		},
 		{
-			"checksumSHA1": "9/2qvuFPQxW7ZXzQSOYwqZb5cNg=",
-			"path": "github.com/urfave/cli",
-			"revision": "8e01ec4cd3e2d84ab2fe90d8210528ffbb06d8ff",
-			"revisionTime": "2018-02-26T03:02:53Z"
-		},
-		{
 			"checksumSHA1": "y3a1tOZVwKCqG2yJZvAYycnelyM=",
 			"path": "golang.org/x/crypto/ssh/terminal",
 			"revision": "bc89c496413265e715159bdc8478ee9a92fdc265",

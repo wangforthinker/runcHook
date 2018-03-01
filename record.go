@@ -1,25 +1,12 @@
 package main
 
 import (
-	"github.com/urfave/cli"
 	"os"
 	"io/ioutil"
 	"encoding/json"
 )
 
-var(
-	fWriteFilePath = cli.StringFlag{
-		Name: "file",
-		Usage: "write file path",
-		Value: "/tmp/record",
-	}
-)
-
-func record(c *cli.Context) error {
-	log.Info("in runcHook record")
-
-	fpath := c.String("file")
-
+func record(fpath string) error {
 	log.WithField("file",fpath).Info("print file path")
 
 	log.WithField("bundle", state.Bundle).WithField("id",state.ID).Info("get state info")
