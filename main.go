@@ -7,6 +7,7 @@ import (
 	"strings"
 	"github.com/wangforthinker/runcHook/hook"
 	"io/ioutil"
+	"encoding/json"
 )
 
 var(
@@ -31,7 +32,8 @@ func readStdin() error {
 	log.Info("read stdin ok")
 
 	log.Info("data is %s",string(data))
-	return nil
+
+	return json.Unmarshal(data, &state)
 }
 
 func main() {
