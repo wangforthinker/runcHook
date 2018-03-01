@@ -4,6 +4,7 @@ import (
 	"github.com/urfave/cli"
 	"os"
 	"github.com/wangforthinker/runcHook/utils"
+	"strings"
 )
 
 var(
@@ -22,6 +23,8 @@ func main() {
 			Action: record,
 		},
 	}
+
+	log.Info("start runc hook, cmd is %s", strings.Join(os.Args,","))
 
 	if err := app.Run(os.Args); err != nil {
 		log.Fatal(err.Error())
