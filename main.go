@@ -1,4 +1,4 @@
-package runcHook
+package main
 
 import (
 	"github.com/urfave/cli"
